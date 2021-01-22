@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/sidestil1.css" />
+  </head>
+  <body>
+    <div class="page">
+      <!-- Implementer Haeader -->
+      <div id="header">
+        <object type="text/html" data="/header.html" width="100%"></object>
+      </div>
+
+      <!-- Implementer Sidebar -->
+      <div id="sidebar">
+        <object type="text/html" data="/sidebar.html" height="100%"></object>
+      </div>
+      <div id="main-content">
+        <h2>Hva studerer vi på Get Academy?</h2>
+        <br />
+        <h2 id="aa0">Velg et alternativ:</h2>
+        <h2 id="aaa"></h2>
+        <button onclick="doSomething1()">"Marsvin"</button>
+        <br />
+        <button onclick="doSomething2()">"Koding"</button>
+        <br />
+        <button onclick="doSomething3()">"Selve livet"</button>
+
+        <script>
+          function doSomething1() {
+            document.getElementById('aa0').innerHTML = 'Ditt svar er:';
+            document.getElementById('aaa').innerHTML = 'Feil';
+          }
+        </script>
+
+        <script>
+          function doSomething2() {
+            document.getElementById('aa0').innerHTML = 'Ditt svar er:';
+            document.getElementById('aaa').innerHTML = 'Riktig';
+          }
+        </script>
+
+        <script>
+          function doSomething3() {
+            document.getElementById('aa0').innerHTML = 'Ditt svar er:';
+            document.getElementById('aaa').innerHTML = 'Feil';
+          }
+        </script>
+      </div>
+
+      <div id="footer">
+        <p>dette er footer'n!</p>
+      </div>
+    </div>
+  </body>
+</html>

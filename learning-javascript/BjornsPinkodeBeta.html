@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/sidestil1.css" />
+  </head>
+  <body>
+    <div class="page">
+      <!-- Implementer Haeader -->
+      <div id="header">
+        <object type="text/html" data="/header.html" width="100%"></object>
+      </div>
+
+      <!-- Implementer Sidebar -->
+      <div id="sidebar">
+        <object type="text/html" data="/sidebar.html" height="100%"></object>
+      </div>
+
+    <div class="page">
+      <div id="main-content">
+      <h2>Bjørns Pin kode program v1.0</h2>
+      <p>
+        Foreløbig kan dette programmet: <br> 
+        Registrere hvilke tall du trykker på, vise tall i "display". <br>
+        Kvittere for riktig pin kode, som er 3812. <br> 
+        Samt en fungerende "reset knapp" for å nulstille programmet.
+      </p>
+
+      <table
+        border="1px"
+        style="font-size: 40px; width: 200px; text-align: center"
+        ;
+      >
+        <tr>
+          <td>
+            <var onclick="kopierTall(this)">1</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">2</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">3</var>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <var onclick="kopierTall(this)">4</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">5</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">6</var>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <var onclick="kopierTall(this)">7</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">8</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">9</var>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <var onclick="kopierTall(this)">*</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">0</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">#</var>
+          </td>
+        </tr>
+      </table>
+      <table
+        border="1px"
+        style="font-size: 20px; width: 200px; text-align: center"
+      >
+        <tr>
+          <td>
+            <p id="enterPin">Enter Pin Code:</p>
+            <button id="resetbutton" onclick="location.reload()">Reset</button>
+            <br></br>
+          </td>
+        </tr>
+        <tr>
+          <td style="height: 50px">
+            <output id="pinScreen"></output>
+          </td>
+        </tr>
+      </table>
+
+      <script>
+        function kopierTall(kT) {
+          var x = kT.innerHTML;
+          document.getElementById("pinScreen").innerHTML += x;
+          console.log(document.getElementById("pinScreen").innerHTML);
+
+          if (document.getElementById("pinScreen").innerHTML == 3812) {
+            document.getElementById("enterPin").innerHTML = "Riktig";
+          }
+
+        }
+      </script>
+      </div>
+    </div>
+  </body>
+</html>

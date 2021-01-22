@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+      .Panel {
+        float: left;
+        background-color: beige;
+        width: 50px;
+        height: 50px;
+        padding: 10px;
+        margin: 10px;
+        text-align: center;
+        vertical-align: middle;
+        font-family: helvetica;
+        font-size: 200%;
+        border: #bbbbaa solid 4px;
+        border-radius: 10px;
+      }
+
+      #resultBox {
+            width: 344px;
+            text-align: right;
+      }
+
+      .firstInRow {
+      clear: left;
+    
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      //  model
+      
+      var resultatDisplay = '';
+
+      // controller
+      
+      function velgTall(vT) {
+        var aktueltTall = vT.innerHTML; 
+        resultatDisplay += aktueltTall;  
+             
+        console.log(aktueltTall);
+
+        updateView();
+      }
+
+      function calculate() {
+        var calculation = resultBox.innerHTML
+          .replace('×', '*')
+          .replace('÷', '/');
+        resultBox.innerHTML = eval(calculation);
+      }
+
+      function clearResult () {
+        resultatDisplay = '';
+        updateView();
+      }
+
+      // view
+      updateView();
+
+      function updateView() {
+        document.getElementById('app').innerHTML = `        
+
+          <div id="resultBox" class="Panel">${resultatDisplay}</div>
+
+        <div id="7" class="Panel firstInRow" onclick="velgTall(this)">7</div>
+        <div id="8" class="Panel" onclick="velgTall(this)">8</div>
+        <div id="9" class="Panel" onclick="velgTall(this)">9</div>
+        <div id="÷" class="Panel" onclick="velgTall(this)">÷</div>
+
+        <div id="4" class="Panel firstInRow" onclick="velgTall(this)">4</div>
+        <div id="5" class="Panel" onclick="velgTall(this)">5</div>
+        <div id="6" class="Panel" onclick="velgTall(this)">6</div>
+        <div id="x" class="Panel" onclick="velgTall(this)">×</div>
+
+        <div id="1" class="Panel firstInRow"  onclick="velgTall(this)">1</div>
+        <div id="2" class="Panel" onclick="velgTall(this)">2</div>
+        <div id="3" class="Panel" onclick="velgTall(this)">3</div>
+        <div id="-" class="Panel" onclick="velgTall(this)">-</div>
+
+        <div id="0" class="Panel firstInRow" onclick="velgTall(this)">0</div>
+        <div id="C" class="Panel" onclick="clearResult();">C</div>
+        <div id="=" class="Panel" onclick="calculate()">=</div>
+        <div id="+" class="Panel" onclick="velgTall(this)">+</div>
+        `;
+      }
+    </script>
+  </body>
+</html>

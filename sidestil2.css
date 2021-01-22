@@ -1,0 +1,42 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  width: 100vw;
+}
+
+.page {
+  background-color: lightcoral;
+}
+
+#header {
+  background-color: rgb(188, 188, 219);
+
+  width: 100%;
+  height: 14vh;
+  float: left;
+}
+
+#sidebar {
+  background-color: rgb(155, 155, 221);
+  width: 20%;
+  height: 100vh;
+  float: left;
+  clear: left;
+}
+
+#main-content {
+  background-color: rgb(139, 0, 132);
+  width: 500px;
+  height: 100vh;
+  float: left;
+}
+
+#footer {
+  background-color: rgb(88, 88, 216);
+  grid-area: fem;
+  width: 100%;
+  height: 10vh;
+  float: left;
+  clear: left;
+}

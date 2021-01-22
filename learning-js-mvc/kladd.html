@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Kalkulator</title>
+
+</head>
+<body>
+
+
+<script type="text/javascript">
+    var resultBox = document.getElementById('resultBox');
+
+    function addCharacter(x) {
+        resultBox.innerHTML += x;
+    }
+
+    function calculate() {
+        var calculation = resultBox
+            .innerHTML
+            .replace('×', '*')
+            .replace('÷', '/');
+        resultBox.innerHTML = eval(calculation);
+    }
+    function clearResult() {
+        resultBox.innerHTML = '';
+    }
+</script>
+</body>
+</html>

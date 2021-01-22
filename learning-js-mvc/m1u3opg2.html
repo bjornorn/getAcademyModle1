@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+      div {
+        font-size: 300%;
+        user-select: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <script>
+      //  model
+      var pinScreen = '';
+      var valgtTall = '';
+      var enterScreen = 'Enter Pin Code:';
+
+      // controller
+      function kopierTall(kT) {
+        enterScreen = 'Enter Pin Code:';
+        valgtTall = kT.innerHTML;
+        pinScreen += valgtTall;
+        updateView();
+        console.log(pinId);
+
+        if (pinScreen == 3812) {
+          enterScreen = 'Riktig';
+          pinScreen = '';
+          updateView();
+        } else if ((pinScreen.length >= 4) & (pinScreen != 3812)) {
+          enterScreen = 'Feil';
+          pinScreen = '';
+          updateView();
+        }
+      }
+
+      // view
+      updateView();
+
+      function updateView() {
+        document.getElementById('app').innerHTML = `        
+        <table
+        border="3vw"
+        style="font-size: 3vw; width: 20vw; height: 25vw; text-align: center; float: left; background-color:rgb(145, 57, 133);"
+        ;>
+        
+        <tr>
+          <td>
+            <var onclick="kopierTall(this)">1</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">2</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">3</var>
+          </td>
+          
+        </tr>
+        <tr>
+          <td>
+            <var onclick="kopierTall(this)">4</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">5</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">6</var>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <var onclick="kopierTall(this)">7</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">8</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">9</var>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <var onclick="kopierTall(this)">*</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">0</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">#</var>
+          </td>
+        </tr>
+      </table>
+      
+      <table id="displayTable"
+        border="4vw"
+        style="font-size: 3vw; width: 20vw; text-align: center; float: top, right; background-color:rgb(145, 57, 133);"
+      >
+      <tr>
+        <td>
+          <p id="enterPin">${enterScreen}</p>
+          <button id="resetbutton" onclick="location.reload()">Reset</button>
+          <br></br>
+        </td>
+      </tr>
+      <tr>
+        <td style="height: 50px">
+          <output id="pinId">${pinScreen}</output>
+        </td>
+      </tr>
+      </table>
+     
+
+
+        `;
+      }
+    </script>
+  </body>
+</html>

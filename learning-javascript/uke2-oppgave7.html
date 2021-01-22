@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/sidestil1.css" />
+  </head>
+  <body>
+    <div class="page">
+      <!-- Implementer Haeader -->
+      <div id="header">
+        <object type="text/html" data="/header.html" width="100%"></object>
+      </div>
+
+      <!-- Implementer Sidebar -->
+      <div id="sidebar">
+        <object type="text/html" data="/sidebar.html" height="100%"></object>
+      </div>
+      
+      <div id="main-content">
+    <p>Ferdighet 7 - Sette variabel til resultat av et regnestykke.</p>
+    <input
+      id="tallA"
+      type="range"
+      min="1"
+      max="1000"
+      step="1"
+      oninput="bjornFunksjon()"
+      value="100"
+    />
+    <input
+      id="tallB"
+      type="range"
+      min="1"
+      max="1000"
+      step="1"
+      oninput="bjornFunksjon()"
+      value="100"
+    />
+    <div id="tekstFeltDiv"></div>
+    <div id="resultat"></div>
+      </div>
+
+    <script>
+      var resultatDiv = document.getElementById('resultat');
+      var tallAInput = document.getElementById('tallA');
+      var tallBInput = document.getElementById('tallB');
+      var tekstFelt = document.getElementById('tekstFeltDiv');
+
+      bjornFunksjon();
+
+      function bjornFunksjon() {
+        console.log('A ' + tallAInput.value);
+        console.log('B ' + tallBInput.value);
+
+        resultatDiv.innerHTML =
+          '<div style=' +
+          //   bakgrunn farge
+          '"background-color: red;' +
+          //   høyde
+          'height:' +
+          tallAInput.value +
+          'px;' +
+          //   bredde
+          'width:' +
+          tallBInput.value +
+          'px";' +
+          //   avslutt syle
+          '</div>' +
+          //   implementer tekst
+          'Høyde:' +
+          tallAInput.value +
+          ' Bredde: ' +
+          tallBInput.value +
+          '</br>' +
+          '</br>' +
+          // legg til utregninger
+          'Areal: ' +
+          tallAInput.value * tallBInput.value +
+          '</br>' +
+          'Omkrets: ' +
+          (tallAInput.value * 2 + tallBInput.value * 2);
+
+        // tekstFelt.innerHTML =
+        //   'Høyde:' + tallAInput.value + ' Bredde: ' + tallBInput.value;
+      }
+    </script>
+        <div id="footer" height="100%">
+          <p>dette er footer'n!</p>
+        </div>
+  </body>
+</html>

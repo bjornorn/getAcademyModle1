@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/sidestil1.css" />
+  </head>
+  <body>
+    <div class="page">
+      <!-- Implementer Haeader -->
+      <div id="header">
+        <object type="text/html" data="/header.html" width="100%"></object>
+      </div>
+
+      <!-- Implementer Sidebar -->
+      <div id="sidebar">
+        <object type="text/html" data="/sidebar.html" height="100%"></object>
+      </div>
+      <div id="main-content">
+       
+          <table>
+          
+          <h3>Oppgave:</h3>
+              <p>
+            Denne html-koden lager en tabell med to rader og to celler: Utvid tabellen med flere rader og flere kolonner. Sørg så for at når man har musepekeren over en celle, så endrer innholdet seg fra o til x. 
+          <table><tr><td>o</td><td>o</td></tr><tr><td>o</td><td>o</td></tr></table>
+          </p>
+     
+   
+          <h3>Løsning:</h3>
+        
+          <p>Ekstra - laget også en funksjon for å endre innholdet i cellen tilbake til "o" når musepekeren er borte</p>
+          <table>
+            <tr>
+              <td
+                onmouseover="doSomething(this)"
+                onmouseout="doSomethingElse(this)"
+              >
+                o
+              </td>
+              <td
+                onmouseover="doSomething(this)"
+                onmouseout="doSomethingElse(this)"
+              >
+                o
+              </td>
+              <td
+                onmouseover="doSomething(this)"
+                onmouseout="doSomethingElse(this)"
+              >
+                o
+              </td>
+            </tr>
+            <tr>
+              <td
+                onmouseover="doSomething(this)"
+                onmouseout="doSomethingElse(this)"
+              >
+                o
+              </td>
+              <td
+                onmouseover="doSomething(this)"
+                onmouseout="doSomethingElse(this)"
+              >
+                o
+              </td>
+              <td
+                onmouseover="doSomething(this)"
+                onmouseout="doSomethingElse(this)"
+              >
+                o
+              </td>
+            </tr>
+            <tr>
+              <td
+                onmouseover="doSomething(this)"
+                onmouseout="doSomethingElse(this)"
+              >
+                o
+              </td>
+              <td
+                onmouseover="doSomething(this)"
+                onmouseout="doSomethingElse(this)"
+              >
+                o
+              </td>
+              <td
+                onmouseover="doSomething(this)"
+                onmouseout="doSomethingElse(this)"
+              >
+                o
+              </td>
+            </tr>
+          </th>
+        </table>
+
+          <script>
+            function doSomething(xxx) {
+              xxx.innerHTML = "x";
+            }
+            function doSomethingElse(ooo) {
+              ooo.innerHTML = "o";
+            }
+          </script>
+        
+      </div>
+    
+    
+
+      <div id="footer" height="100%">
+        <p>dette er footer'n!</p>
+      </div>
+    
+  </body>
+</html>

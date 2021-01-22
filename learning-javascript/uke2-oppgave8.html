@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/sidestil1.css" />
+  </head>
+  <body>
+    <div class="page">
+      <!-- Implementer Header -->
+      <div id="header">
+        <object type="text/html" data="/header.html" width="100%"></object>
+      </div>
+
+      <!-- Implementer Sidebar -->
+      <div id="sidebar">
+        <object type="text/html" data="/sidebar.html" height="100%"></object>
+      </div>
+
+      <div id="main-content">
+        <p>Ferdighet 7a - Sette variabel til tilfeldig tall</p>
+        <div id="resultat"></div>
+        <!--
+      Last siden på nytt for nye tall.
+      Endre tallet 10 på linje 20 og 21 til noe annet. Hva blir annerledes?
+      Endre tallet 100 på linje 20 og 21 til noe annet. Hva blir annerledes?
+      Ta bort Math.floor() på linje 20 og 21. Hva blir forskjellen?
+      -->
+
+        <script>
+          var resultatDiv = document.getElementById('resultat');
+          calculate();
+
+          function calculate() {
+            var tallA = 200 + Math.floor(Math.random() * 100);
+            var tallB = 200 + Math.floor(Math.random() * 100);
+            var tallC = 1 + Math.floor(Math.random() * 10);
+
+            var sum = tallA + tallB;
+            var differense = tallA - tallB;
+            var produkt = tallA * tallB;
+            var kvotient = tallA / tallB;
+            resultatDiv.innerHTML =
+              '<div style=' +
+              '"background-color: burlywood;' +
+              'height:' +
+              tallA +
+              'px;' +
+              'width:' +
+              tallB +
+              'px;' +
+              'border:' +
+              'solid ' +
+              tallC +
+              'px"' +
+              ';' +
+              '</div>' +
+              'Bredde: ' +
+              tallA +
+              ' px' +
+              '</br>' +
+              'Høyde: ' +
+              tallB +
+              ' px' +
+              '</br>' +
+              'Border: ' +
+              tallC +
+              ' px' +
+              '</br>' +
+              '</br>' +
+              '' +
+              tallA +
+              '+' +
+              tallB +
+              '+' +
+              tallC +
+              '=' +
+              sum +
+              '<br/>' +
+              tallA +
+              '-' +
+              tallB +
+              '=' +
+              differense +
+              '<br/>' +
+              tallA +
+              '*' +
+              tallB +
+              '=' +
+              produkt +
+              '<br/>' +
+              tallA +
+              '/' +
+              tallB +
+              '=' +
+              kvotient;
+          }
+        </script>
+      </div>
+
+      <div id="footer" height="100%">
+        <p>dette er footer'n!</p>
+      </div>
+    </div>
+  </body>
+</html>

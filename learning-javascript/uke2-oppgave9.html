@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/sidestil1.css" />
+  </head>
+  <body>
+    <div class="page">
+      <!-- Implementer Haeader -->
+      <div id="header">
+        <object type="text/html" data="/header.html" width="100%"></object>
+      </div>
+
+      <!-- Implementer Sidebar -->
+      <div id="sidebar">
+        <object type="text/html" data="/sidebar.html" height="100%"></object>
+      </div>
+
+      <div id="main-content">      
+        
+        <style>
+            .storskrift {
+                
+                font-size: 30px;
+            }
+            .bakgrunn {
+                background-color: rgb(109, 179, 40);
+            }
+            .tekstisenter {
+              text-align: center;           
+              
+            }
+            .farge{
+              
+              color: rgb(245, 42, 137);
+            }
+
+            .fetskrift{
+              
+              font-style: italic;
+            }
+
+
+            .allebokser {
+              height: 120px;
+              width: 120px;
+              border: solid;
+              float: left;
+              margin: 5px;
+            }
+            
+            div.selected::before {
+            content: "🡆";         
+            }
+
+            div.selected::after {
+            content: "🡄";
+            }
+     
+        </style>
+
+        <div id="boks-1" class="allebokser" onclick="valgtBoks(this.id)">boks1</div>
+        <div id="boks-2" class="allebokser" onclick="valgtBoks(this.id)"> boks2</div>
+        <div id="boks-3" class="allebokser" onclick="valgtBoks(this.id)"> boks3</div>
+        <div id="boks-4" class="allebokser" onclick="valgtBoks(this.id)"> boks4</div>
+        <div id="boks-5" class="allebokser" onclick="valgtBoks(this.id)"> boks5</div>
+        
+        <div style="clear:left">
+        <input id="chk-1" type="checkbox" onchange="endreStil()">Stor Skrift</input> <br>
+        <input id="chk-2" type="checkbox" onchange="endreStil()">Bakgrunn</input> <br>
+        <input id="chk-3" type="checkbox" onchange="endreStil()">Sentrer tekst</input> <br>
+        <input id="chk-4" type="checkbox" onchange="endreStil()">Farge</input> <br>
+        <input id="chk-5" type="checkbox" onchange="endreStil()">Kursiv Tekst</input> <br>
+        </div>
+
+        <select id="selectboks" onchange="endreBoks()">
+          <option value="boks-1">Boks 1</option>
+          <option value="boks-2">Boks 2</option>
+          <option value="boks-3">Boks 3</option>
+          <option value="boks-4" selected>Boks 4</option>
+          <option value="boks-5">Boks 5</option>          
+        </select>    
+   
+        <script>
+      
+            var boks1 = document.getElementById("boks-1");
+            var boks2 = document.getElementById("boks-2");
+            var selectboks = document.getElementById("selectboks");
+
+            
+            var chk1 = document.getElementById("chk-1");
+            var chk2 = document.getElementById("chk-2");
+            var chk3 = document.getElementById("chk-3");
+            var chk4 = document.getElementById("chk-4");
+            var chk5 = document.getElementById("chk-5");    
+
+            function valgtBoks (vB){ 
+              var aktuellBoks = vB;       
+              console.log(vB);     
+            }  
+
+            function endreStil() {        
+            
+              var isChecked = chk1.checked;
+              document.getElementById(selectboks.value).classList.toggle('storskrift', isChecked);
+
+              var isChecked = chk2.checked;
+              document.getElementById(selectboks.value).classList.toggle('bakgrunn', isChecked);
+
+              var isChecked = chk3.checked;
+              document.getElementById(selectboks.value).classList.toggle('tekstisenter', isChecked);
+
+              var isChecked = chk4.checked;
+              document.getElementById(selectboks.value).classList.toggle('farge', isChecked);
+
+              var isChecked = chk5.checked;
+              document.getElementById(selectboks.value).classList.toggle('fetskrift', isChecked);
+            } 
+
+            function endreBoks() {
+              chk1.checked = document.getElementById(selectboks.value).classList.contains('storskrift');
+              chk2.checked = document.getElementById(selectboks.value).classList.contains('bakgrunn');
+              chk3.checked = document.getElementById(selectboks.value).classList.contains('tekstisenter');
+              chk4.checked = document.getElementById(selectboks.value).classList.contains('farge');
+              chk5.checked = document.getElementById(selectboks.value).classList.contains('fetskrift');
+            }      
+          </script>
+
+    </body>
+    
+    </div>
+
+      <div id="footer" height="100%">
+        <p>dette er footer'n!</p>
+      </div>
+    </div>
+  </body>
+</html>

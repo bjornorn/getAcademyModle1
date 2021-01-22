@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/sidestil1.css" />
+  </head>
+  <body>
+    <div class="page">
+      <!-- Implementer Haeader -->
+      <div id="header">
+        <object type="text/html" data="/header.html" width="100%"></object>
+      </div>
+
+      <!-- Implementer Sidebar -->
+      <div id="sidebar">
+        <object type="text/html" data="/sidebar.html" height="100%"></object>
+      </div>
+    
+      <div id="main-content">
+      <h2>Oppgave: Tast inn Pin kode</h2>
+
+      <table
+        border="3vw"
+        style="font-size: 3vw; width: 20vw; height: 25vw; text-align: center; float: left; background-color:rgb(145, 57, 133);"
+        ;
+      >
+        <tr>
+          <td>
+            <var onclick="kopierTall(this)">1</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">2</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">3</var>
+          </td>
+          
+        </tr>
+        <tr>
+          <td>
+            <var onclick="kopierTall(this)">4</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">5</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">6</var>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <var onclick="kopierTall(this)">7</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">8</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">9</var>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <var onclick="kopierTall(this)">*</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">0</var>
+          </td>
+          <td>
+            <var onclick="kopierTall(this)">#</var>
+          </td>
+        </tr>
+      </table>
+      
+      <table id="displayTable"
+        border="4vw"
+        style="font-size: 3vw; width: 20vw; text-align: center; float: top, right; background-color:rgb(145, 57, 133);"
+      >
+      <tr>
+        <td>
+          <p id="enterPin">Enter Pin Code:</p>
+          <button id="resetbutton" onclick="location.reload()">Reset</button>
+          <br></br>
+        </td>
+      </tr>
+      <tr>
+        <td style="height: 50px">
+          <output id="pinScreen"></output>
+        </td>
+      </tr>
+      </table>
+    
+
+      <script>
+        function kopierTall(kT) {
+          var x = kT.innerHTML;
+          document.getElementById("pinScreen").innerHTML += x;
+          console.log(document.getElementById("pinScreen").innerHTML.length);
+          
+
+          if (document.getElementById("pinScreen").innerHTML == 3812) {
+            document.getElementById("enterPin").innerHTML = "Riktig";
+            console.log(document.getElementById("pinScreen").innerHTML.length);
+            document.getElementById("pinScreen").innerHTML = "";
+          }
+
+          else if (document.getElementById("pinScreen").innerHTML.length >= 4 
+          & document.getElementById("pinScreen").innerHTML != 3812) {
+            document.getElementById("enterPin").innerHTML = "Feil";
+            document.getElementById("pinScreen").innerHTML = "";
+
+          }
+
+          else if (document.getElementById("pinScreen").innerHTML.length <= 3 ) {
+            document.getElementById("enterPin").innerHTML = "Enter Pin Code:";
+            
+
+          }
+        }
+      </script>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <h2>Cliffnotes</h2>
+      <a
+        href="https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_text_value2"
+        >Trykk en "tast" og vis i display</a
+      >
+      </div>
+      
+      <div id="footer" height="100%">
+      <p>dette er footer'n!</p>
+      </div>
+    </div>
+  </body>
+</html>

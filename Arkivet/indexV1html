@@ -1,0 +1,43 @@
+<!DOCTYPE html>                                         <! -- dette deklarerer hvilken type dokument-->
+    <html lang="no">
+        <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="refresh" content="5">
+        <link rel="stylesheet" href="sidestil1.css">
+        </head>  
+        
+        <header>
+            <h1>Bjørn lærer koding</h1>   
+            <p>Her skriver jeg raske stikkord om ting jeg har lært.</p>
+            
+        </header>
+        <body> 
+        <div class="row">
+            <div class="column1">
+                <p>har fått laget marg
+                    fredriksen var her også
+                </p>
+            </div>
+
+            <div class="column2">
+                    <h1>HTML kort oppsummert</h1>                         
+                    <p>Kodespråk brukt mest til å lage hjemmesider. Består av 3 <en>hovedkomponenter</en></p>
+                    <p><en>TAGS:</en> starter med &lt;&gt; og slutter med &lt;/&gt;</p>
+                    <p>VOID (tomrom) TAGS: Tags som ikke kan ha ekstra informasjon i seg, eksempelvis &lt;img src="myimage.jpg&gt;"</p>
+                    <p><en>ATTRIBUTES:</en> for ytterligere beskrivelse av TAGS. Eksempel:  &lt;tag attribute="value"&gt; &lt;img src="myimage.jpg"&gt;</p>
+                    <p><en>ELEMENTS:</en> Et element er tag'en og innholdet inne i tag'en, eksempelvis &lt;h1&gt;innhold&lt;/h1&gt;</p>
+                    <br> </br>
+                    
+                    <h1>CSS kort oppsummert</h1>                         
+                    <br></br>
+                    <p>Her var F R E D R I K S E N</p>
+                    <img src="bilder/CSSsyntax.gif">
+                    <p>CSS står for Cascading Style Sheets, kun brukt til å definere stilen på siden(e) den kobles til</p>
+                    <a href="https://www.youtube.com/watch?v=l1mER1bV0N0">YouTube film som forklarer elementær bruk av CSS</a>
+            
+            </div>
+        </div> 
+        </body> 
+
+ 
+</html>
