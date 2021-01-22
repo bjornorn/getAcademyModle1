@@ -5,26 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="sidestil1.css" />
   </head>
+
   <body>
-    <div class="page">
-      <!-- Implementer Haeader -->
-      <div id="header">
-        <object type="text/html" data="header.html" width="100%"></object>
-      </div>
-
-      <!-- Implementer Sidebar -->
-      <div id="sidebar">
-        <object type="text/html" data="sidebar.html" height="100%"></object>
-      </div>
-
-      <div id="main-content">
-        <object type="text/html" data="info-index.html" height="100%"></object>
-      </div>
-      <iframe src="info-index.html" width="100%" height="100%">Iframe</iframe>   
-
-      <div id="footer" height="100%">
-        <p>dette er footer'n!</p>
-      </div>
-    </div>   
+  
+        
+          <div class="page">
+            <frameset>
+              <frame src="header.html">
+              <frame src="info-index.html">
+              <frame src="sidebar.html">
+              <frame src="footer.html">        
+            </frameset>
+            
+            <!-- Implementer Haeader -->
+            <div id="header">
+              <object type="text/html" data="header.html" width="100%"></object>
+            </div>
+            
+            <!-- Implementer Sidebar -->
+            <div id="sidebar">
+              <object type="text/html" data="sidebar.html" height="100%"></object>
+            </div>
+            
+            <div id="main-content">
+              <object type="text/html" data="info-index.html" height="100%"></object>
+            </div>
+            <iframe src="info-index.html" width="100%" height="100%">Iframe</iframe>   
+            
+            <div id="footer" height="100%">
+              <p>dette er footer'n!</p>
+            </div>
+          </div>   
+          
+   
   </body>
 </html>
