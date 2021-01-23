@@ -1,123 +1,116 @@
 ﻿﻿<!DOCTYPE html>
-<html lang="no">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/sidestil1.css" />
+    <link rel="stylesheet" href="../sidestil1.css" />
+    <title>Document</title>
   </head>
   <body>
     <div class="page">
-      <!-- Implementer Haeader -->
-      <div id="header">
-        <object type="text/html" data="/header.html" width="100%"></object>
+      <div id="header"></div>
+      <div id="sidebar"></div>
+      <div id="mainContent">
+        <p>
+          Ferdighet 6 - Sette sammen tekst av flere deler og bruke dette til å
+          bygge HTML dynamisk
+        </p>
+        <!-- Slider for å velge størrelse -->
+        <input
+          id="sizeSlider"
+          type="range"
+          min="100"
+          max="500"
+          step="10"
+          oninput="showDiv()"
+        />
+        <!-- Input for å velge tekst -->
+        <br /><input
+          id="textInput"
+          type="text"
+          oninput="showDiv()"
+          value="endre teksten!"
+        />
+        <!-- Farge velger drop down meny -->
+        <select id="colorChooser" onchange="showDiv()">
+          <option value="red">Red color</option>
+          <option selected value="green">Green color</option>
+          <option value="blue">Blue color</option>
+        </select>
+
+        <!-- Border velger drop down meny -->
+        <select id="borderChooser" onchange="showDiv()">
+          <option value="5px solid #808080">Gray Border</option>
+          <option selected value="25px solid #000000">Black border</option>
+          <option value="5px none #000000">No Border</option>
+        </select>
+
+        <!-- Slider for å velge border radius -->
+        <input
+          id="bordRadSlider"
+          type="range"
+          min="0"
+          max="100"
+          step="1"
+          oninput="showDiv()"
+        />
+
+        <p>
+          Utvid eksempelet med en egen valgboks som lar brukeren velge mellom
+          svart, grå eller ingen ramme (border) og en slider til å bestemme hvor
+          avrundet rammen skal være (border-radius).
+        </p>
+
+        <!-- Synlige div-er -->
+        <div id="resultat"></div>
+        <div id="resultatHtml" style="font-family: monospace"></div>
       </div>
+      <!-- Definer angitt inn data som variabler -->
+      <script>
+        var resultatDiv = document.getElementById('resultat');
+        var resultatHtmlDiv = document.getElementById('resultatHtml');
+        var sizeSlider = document.getElementById('sizeSlider');
+        var textInput = document.getElementById('textInput');
+        var colorChooser = document.getElementById('colorChooser');
+        var borderChooser = document.getElementById('borderChooser');
+        var bordRadSlider = document.getElementById('bordRadSlider');
 
-      <!-- Implementer Sidebar -->
-      <div id="sidebar">
-        <object type="text/html" data="/sidebar.html" height="100%"></object>
-      </div>
-      
-      <div id="main-content">
-    <p>
-      Ferdighet 6 - Sette sammen tekst av flere deler og bruke dette til å bygge
-      HTML dynamisk
-    </p>
-    <!-- Slider for å velge størrelse -->
-    <input
-      id="sizeSlider"
-      type="range"
-      min="100"
-      max="500"
-      step="10"
-      oninput="showDiv()"
-    />
-    <!-- Input for å velge tekst -->
-    <br /><input
-      id="textInput"
-      type="text"
-      oninput="showDiv()"
-      value="endre teksten!"
-    />
-    <!-- Farge velger drop down meny -->
-    <select id="colorChooser" onchange="showDiv()">
-      <option value="red">Red color</option>
-      <option selected value="green">Green color</option>
-      <option value="blue">Blue color</option>
-    </select>
+        showDiv();
 
-    <!-- Border velger drop down meny -->
-    <select id="borderChooser" onchange="showDiv()">
-      <option value="5px solid #808080">Gray Border</option>
-      <option selected value="25px solid #000000">Black border</option>
-      <option value="5px none #000000">No Border</option>
-    </select>
-
-    <!-- Slider for å velge border radius -->
-    <input
-      id="bordRadSlider"
-      type="range"
-      min="0"
-      max="100"
-      step="1"
-      oninput="showDiv()"
-    />
-
-    <p>
-      Utvid eksempelet med en egen valgboks som lar brukeren velge mellom svart,
-      grå eller ingen ramme (border) og en slider til å bestemme hvor avrundet
-      rammen skal være (border-radius).
-    </p>
-
-    <!-- Synlige div-er -->
-    <div id="resultat"></div>
-    <div id="resultatHtml" style="font-family: monospace"></div>
+        // Definer hvordan variabler skal vises
+        function showDiv() {
+          resultatDiv.innerHTML =
+            // åpner style
+            '<div style="' +
+            // bakgrunn farge
+            'background-color: ' +
+            colorChooser.value +
+            '; ' +
+            // bredde
+            'width: ' +
+            sizeSlider.value +
+            'px;' +
+            //bredde
+            'height: ' +
+            sizeSlider.value +
+            'px;' +
+            //border style
+            'border: ' +
+            borderChooser.value +
+            ';' +
+            //border radius
+            'border-radius: ' +
+            bordRadSlider.value +
+            'px;' +
+            // lukker Style
+            '">' +
+            textInput.value + //velg tekst
+            '</div>';
+          resultatHtmlDiv.innerText = resultatDiv.innerHTML;
+        }
+      </script>
+      <div id="footer"></div>
+      <script src="../mainPages/mainScriptInFolder.js"></script>
     </div>
-    <!-- Definer angitt inn data som variabler -->
-    <script>
-      var resultatDiv = document.getElementById("resultat");
-      var resultatHtmlDiv = document.getElementById("resultatHtml");
-      var sizeSlider = document.getElementById("sizeSlider");
-      var textInput = document.getElementById("textInput");
-      var colorChooser = document.getElementById("colorChooser");
-      var borderChooser = document.getElementById("borderChooser");
-      var bordRadSlider = document.getElementById("bordRadSlider");
-
-      showDiv();
-
-      // Definer hvordan variabler skal vises
-      function showDiv() {
-        resultatDiv.innerHTML =
-          // åpner style
-          '<div style="' +
-          // bakgrunn farge
-          "background-color: " +
-          colorChooser.value +
-          "; " +
-          // bredde
-          "width: " +
-          sizeSlider.value +
-          "px;" +
-          //bredde
-          "height: " +
-          sizeSlider.value +
-          "px;" +
-          //border style
-          "border: " +
-          borderChooser.value +
-          ";" +
-          //border radius
-          "border-radius: " +
-          bordRadSlider.value +
-          "px;" +
-          // lukker Style
-          '">' +
-          textInput.value + //velg tekst
-          "</div>";
-        resultatHtmlDiv.innerText = resultatDiv.innerHTML;
-      }
-    </script>
-        <div id="footer" height="100%">
-          <p>dette er footer'n!</p>
-        </div>
   </body>
 </html>

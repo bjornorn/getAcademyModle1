@@ -11,37 +11,37 @@
       <div id="header"></div>
       <div id="sidebar"></div>
       <div id="mainContent">
-    <div id="app"></div>
-    <script>
-      //  model
-      var pinScreen = '';
-      var valgtTall = '';
-      var enterScreen = 'Enter Pin Code:';
+        <div id="app"></div>
+        <script>
+          //  model
+          var pinScreen = '';
+          var valgtTall = '';
+          var enterScreen = 'Enter Pin Code:';
 
-      // controller
-      function kopierTall(kT) {
-        enterScreen = 'Enter Pin Code:';
-        valgtTall = kT.innerHTML;
-        pinScreen += valgtTall;
-        updateView();
-        console.log(pinId);
+          // controller
+          function kopierTall(kT) {
+            enterScreen = 'Enter Pin Code:';
+            valgtTall = kT.innerHTML;
+            pinScreen += valgtTall;
+            updateView();
+            console.log(pinId);
 
-        if (pinScreen == 3812) {
-          enterScreen = 'Riktig';
-          pinScreen = '';
+            if (pinScreen == 3812) {
+              enterScreen = 'Riktig';
+              pinScreen = '';
+              updateView();
+            } else if ((pinScreen.length >= 4) & (pinScreen != 3812)) {
+              enterScreen = 'Feil';
+              pinScreen = '';
+              updateView();
+            }
+          }
+
+          // view
           updateView();
-        } else if ((pinScreen.length >= 4) & (pinScreen != 3812)) {
-          enterScreen = 'Feil';
-          pinScreen = '';
-          updateView();
-        }
-      }
 
-      // view
-      updateView();
-
-      function updateView() {
-        document.getElementById('app').innerHTML = `        
+          function updateView() {
+            document.getElementById('app').innerHTML = `        
         <table
         border="3vw"
         style="font-size: 3vw; width: 20vw; height: 25vw; text-align: center; float: left; background-color:rgb(145, 57, 133);"
@@ -115,12 +115,12 @@
 
 
         `;
-      }
-    </script>
- <div id="footer"></div>
+          }
+        </script>
+      </div>
+      <div id="footer"></div>
 
-      
- <script src="../mainPages/mainScriptInFolder.js"></script>
-</div>
-</body>
+      <script src="../mainPages/mainScriptInFolder.js"></script>
+    </div>
+  </body>
 </html>
