@@ -23,4 +23,4 @@ function footer() {
     `;
 }
 
-console.log('test');
+console.log('tmainscript is loaded');
