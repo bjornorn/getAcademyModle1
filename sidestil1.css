@@ -38,8 +38,9 @@ body {
   grid-area: sidebarGrid;
   background-color: mediumorchid;
   height: 100%;
-  width: 100%;
+  
   overflow: auto;
+  overflow-x: hidden;
 }
 
 #mainContent {
