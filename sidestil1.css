@@ -6,8 +6,8 @@ body {
   /* background-color: lightcoral; */
 
   display: grid;
-  grid-template-columns: 20vw 80vw;
-  grid-template-rows: 15vh 75vh 10vh;
+  grid-template-columns: 20vw auto;
+  grid-template-rows: 15vh 80vh 8vh;
   grid-template-areas:
     'headerGrid headerGrid'
     'sidebarGrid mainGrid'
@@ -38,9 +38,12 @@ body {
   grid-area: sidebarGrid;
   background-color: mediumorchid;
   height: 100%;
+  width: 100%;
   
-  overflow: auto;
-  overflow-x: hidden;
+  /* overflow-y: auto; */
+  overflow-x: hidden; 
+  /* overflow-y: scroll;  */
+  /* overflow-y: auto; */
 }
 
 #mainContent {
