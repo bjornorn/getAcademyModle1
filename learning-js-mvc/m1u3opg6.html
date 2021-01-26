@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../sidestil1.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="page">
+      <div id="header"></div>
+      <div id="sidebar"></div>
+      <div id="mainContent">
+        <select name="colorChooser" id="colorChooserId" onchange="fargeVelger()">
+          <option value="black">Svart</option>
+          <option value="darkblue">Mørkeblå</option>
+          <option value="lightgray">Lysegrå</option>
+          <option value="lightgreen">Lysegrønn</option>
+          <option value="lightcoral">Lyderød</option>
+          </select>
+          
+          <div id="colorbox" style="height: 180px; width: 180px;">Fargevelger</div>
+
+          <script>
+            var colorbox = document.getElementById("colorbox")
+              fargeVelger();
+                function fargeVelger() {
+                  var colorChooser = document.getElementById("colorChooserId").value;
+                  var colorText = document.getElementById("colorbox");
+                  colorbox.style.backgroundColor = colorChooser;
+    
+    
+                  if (colorChooser == "black" || colorChooser == "darkblue")
+                  {
+                      colorText.style.color = 'white';
+                  }
+    
+                  else
+                  {
+                      colorText.style.color = 'black';
+                  }
+    
+    
+                  console.log(colorbox.style.backgroundColor);
+    
+              }
+        </script>
+
+
+    </div>
+      <div id="footer"></div>
+      <script src="../mainPages/mainScriptInFolder.js"></script>
+    </div>
+  </body>
+</html>
