@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="introLib.js"></script>
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app"></div>
+
+<script>
+    // module
+    // let text;
+    // let reversedText;
+
+    //view
+    updateView();
+    function updateView() {
+      document.getElementById("app").innerHTML = ` 
+      <input id="newText" type="text" oninput="handleNewText(this)" />
+      <div id="reversedText"></div>
+      `;}
+      
+      function handleNewText(inputTag) {
+        let text = inputTag.value;
+        let reversedText = reverseText(text);
+        document.getElementById('reversedText').innerHTML = reversedText;
+  
+      }
+    </script>
+  </body>
+</html>

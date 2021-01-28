@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="obli.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+<script>
+    // model
+    
+    
+
+
+    // view
+    updateView();
+    function updateView() {
+    document.getElementById("app").innerHTML = `
+        <input type="text" id="datoInput" oninput="isDigitsTen(this)">
+        <div id="konstTekst">10  . 12 . 2021</div>
+        <div id="tekstUt" style="height: 100px; width: 200px; background-color: burlywood;"></div>
+    `;
+    }
+
+    //controller
+    
+    isDigitsTen();
+</script>
+
+
+
+</body>
+</html>

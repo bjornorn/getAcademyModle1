@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Test Suite</title>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/qunit/qunit-2.14.0.css"
+    />
+  </head>
+  <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.14.0.js"></script>
+    <script src="obli.js"></script>
+
+    <script>
+      // QUnit.test('er det gyldig epost', function (assert) {
+      // let actual = ErDetEpost('bjorn.orn@hotmail.com');
+      // let expected = true;
+      // assert.equal(actual, expected);
+      // });
+
+      QUnit.test('string lengde er ikke 10', function (assert) {
+        let actual = isDigitsTen('0123456780');
+        let expected = false;
+        assert.equal(actual, expected);
+      });
+
+      QUnit.test('det mangler et eller flere punktum', function (assert) {
+        let actual = DotsInPlace('--.--.----');
+        let expected = false;
+        assert.equal(actual, expected);
+      });
+
+      QUnit.test('det er feil antal siffer i "year"', function (assert) {
+        let actual = YearDigits('stringIs10');
+        let expected = false;
+        assert.equal(actual, expected);
+      });
+
+      QUnit.test(
+        'måned består ikke av to siffer med godkjent verdi',
+        function (assert) {
+          let actual = MonthDigits('---10-----');
+          let expected = false;
+          assert.equal(actual, expected);
+        }
+      );
+
+      QUnit.test('måned utenfor 1-12', function (assert) {
+        let actual = MonthValue('---10-----');
+        let expected = false;
+        assert.equal(actual, expected);
+      });
+
+      QUnit.test('dag er større enn 31', function (assert) {
+        let actual = DayValue('31-------');
+        let expected = true;
+        assert.equal(actual, expected);
+      });
+
+      QUnit.test(
+        'dag er 31 for en måned som ikke har 31 dager',
+        function (assert) {
+          let actual = LongMonths('dd.01.yyyy');
+          let expected = false;
+          assert.equal(actual, expected);
+        }
+      );
+    </script>
+  </body>
+</html>

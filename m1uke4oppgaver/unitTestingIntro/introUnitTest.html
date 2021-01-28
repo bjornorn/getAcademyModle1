@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Test Suite</title>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/qunit/qunit-2.14.0.css"
+    />
+  </head>
+  <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.14.0.js"></script>
+    <script src="introLib.js"></script>
+
+    <script>
+   
+
+        QUnit.test('skrift baklengs', function (assert) {
+        let actual = reverseText('Kake');
+        let expected = 'ekaK';
+        assert.equal(actual, expected);
+        });
+
+        QUnit.test('skrift baklengs blank', function (assert) {
+        let actual = reverseText('');
+        let expected = '';
+        assert.equal(actual, expected);
+        });
+
+        QUnit.test('skrift baklengs - null', function (assert) {
+        let actual = reverseText(null);
+        let expected = null;
+        assert.equal(actual, expected);
+        });
+   
+    </script>
+  </body>
+</html>
