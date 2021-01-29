@@ -13,10 +13,13 @@
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
     <script src="https://code.jquery.com/qunit/qunit-2.14.0.js"></script>
-    <script src="finalObli.js"></script>
+    <script src="obli1.js"></script>
 
     <script>
       dato = '31.05.1224';
+      // sett VS Code på auto lagring
+      // da vil alle funksjoner testes når
+      // dato ovenfor endres.
 
       QUnit.test('er dato gyldig', function (assert) {
         let actual = isDateValid(dato);
