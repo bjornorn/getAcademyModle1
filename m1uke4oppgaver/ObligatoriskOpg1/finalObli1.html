@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="obli.js"></script>
+    <script src="finalObli.js"></script>
     <title>Document</title>
 </head>
 <body>
     <div id="app"></div>
     <script>
         // model
+        // dato = '12.12.2012';
         
-      
         
         // view
         updateView();
-        function updateView() {
+        function updateView() {            
+            
             document.getElementById("app").innerHTML = `
             <input type="text" id="datoInput" oninput="DatoInput(this.value)">
-            <div id="konstTekst">10  . 12 . 2021</div>
+            <button onclick="TrykkKnapp()">Sjekk Dato</button>
+            
             <div id="tekstUt" style="height: 100px; width: 200px; background-color: burlywood;"></div>
             <div id="testResults">tom tom tom</div>
             `;
@@ -35,11 +37,13 @@
             year = dato[6] + dato[7] + dato[8] + dato[9];
 
             document.getElementById("tekstUt").innerHTML = dato       
-            console.log(dato)  
-            // console.log(day)  
-            isDigitsTen(dato);
-  
+        }    
+        function TrykkKnapp() {
+            dato = document.getElementById("tekstUt").innerText;
+            fungererAlt(dato);       
         }
+  
+        
         
         
       

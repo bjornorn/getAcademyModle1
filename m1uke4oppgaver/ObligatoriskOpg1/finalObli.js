@@ -1,24 +1,43 @@
+function fungererAlt(dato) {
+  isDateValid(dato);
+  return console.log();
+  isDigitsTen(dato);
+  someDotsMissing(dato);
+  YearDigits(dato);
+  MonthDigits(dato);
+  MonthValue(dato);
+  DayValue(dato);
+  ShortMonths(dato);
+  FebMonth(dato);
+  notLeapYear(dato);
+  LeapYear(dato);
+  return console.log('alt OK');
+}
+
 function isDateValid(dato) {
+  parseInt(dato);
   day = dato[0] + dato[1];
   firstDot = dato[2];
+  month0 = dato[3];
+  month1 = dato[4];
   month = dato[3] + dato[4];
   lastDot = dato[5];
   year = dato[6] + dato[7] + dato[8] + dato[9];
 
   if (
     year.length === 4 &&
-    year >= '0000' &&
-    year <= '9999' &&
+    year >= 0000 &&
+    year <= 9999 &&
     month.length === 2 &&
-    month >= '1' &&
-    month <= '12' &&
+    month >= 1 &&
+    month <= 12 &&
     day.length === 2 &&
-    day >= '0' &&
-    day <= '31'
+    day >= 1 &&
+    day <= 31
   ) {
-    return false;
-  } else {
     return true;
+  } else {
+    return false;
   }
 }
 
@@ -45,9 +64,8 @@ function someDotsMissing(dato) {
   }
 }
 
-function YearDigits(year) {
-  year = year.substring(6);
-
+function YearDigits(dato) {
+  year = dato[6] + dato[7] + dato[8] + dato[9];
   // console.log(year.length);
 
   if (year.length != 4) {
@@ -57,17 +75,22 @@ function YearDigits(year) {
   }
 }
 
-function MonthDigits(month) {
-  let month0 = parseInt(month[3]);
-  let month1 = parseInt(month[4]);
+function MonthDigits(dato) {
+  month0 = dato[3];
+  month1 = dato[4];
+  monthSum = dato[3] + dato[4];
 
   // console.log(month);
-  // console.log('parseFloat0 ' + month0);
+  // console.log('parseFloat0 ' + monthSum);
   // console.log('parseFloat1 ' + month1);
 
   if (
-    (month0 != 0 && month0 != 1) ||
-    (month1 != 0 && month1 != 1 && month1 != 2)
+    month0 >= 0 &&
+    month0 <= 1 &&
+    month1 >= 0 &&
+    month1 <= 9 &&
+    monthSum >= 1 &&
+    monthSum <= 12
   ) {
     return true;
   } else {
@@ -75,24 +98,23 @@ function MonthDigits(month) {
   }
 }
 
-function MonthValue(monthValue) {
-  let month0 = parseInt(monthValue[3]);
-  let month1 = parseInt(monthValue[4]);
+function MonthValue(dato) {
+  month0 = dato[3];
+  month1 = dato[4];
 
-  if (
-    (month0 != 0 && month0 != 1) ||
-    (month1 != 0 && month1 != 1 && month1 != 2)
-  ) {
+  if (month0 != 0 && month0 != 1 && month1 != 0 && month1 != 1 && month1 != 2) {
     return true;
   } else {
     return false;
   }
 }
 
-function DayValue(dayValue) {
-  let day0 = parseInt(dayValue[0]);
-  let day1 = parseInt(dayValue[1]);
-  let daySum = day0 * 10 + day1;
+function DayValue(dato) {
+  day0 = dato[0];
+  day1 = dato[1];
+
+  month = dato[3] + dato[4];
+  let daySum = day0 + day1;
 
   // console.log('day0 ' + day0);
   // console.log('day1 ' + day1);
@@ -105,24 +127,26 @@ function DayValue(dayValue) {
   }
 }
 
-function ShortMonths(shortMonths) {
+function ShortMonths(dato) {
   const shortMonthsGang = [2, 4, 6, 9, 11];
-  let day0 = parseInt(shortMonths[0]);
-  let day1 = parseInt(shortMonths[1]);
-  let month0 = parseInt(shortMonths[3]);
-  let month1 = parseInt(shortMonths[4]);
-  let sumMonths = month0 * 10 + month1;
-  let sumDays = day0 * 10 + day1;
+  day0 = dato[0];
+  day1 = dato[1];
+  month0 = dato[3];
+  month1 = dato[4];
+  let sumMonths = month0 + month1;
+  let sumDays = day0 + day1;
 
-  // console.log('shortMonths ' + shortMonthsGang);
-  // console.log('sumMonths ' + sumMonths);
+  console.log('shortMonths ' + shortMonthsGang);
+  console.log('days ' + sumDays);
+  console.log('Months ' + sumMonths);
 
   if (
-    sumMonths == 2 ||
-    sumMonths == 4 ||
-    sumMonths == 6 ||
-    sumMonths == 9 ||
-    (sumMonths == 11 && sumDays > 30)
+    (sumMonths == 2 ||
+      sumMonths == 4 ||
+      sumMonths == 6 ||
+      sumMonths == 9 ||
+      sumMonths == 11) &&
+    sumDays > 30
   ) {
     return true;
   } else {
@@ -130,13 +154,13 @@ function ShortMonths(shortMonths) {
   }
 }
 
-function FebMonth(shortMonths) {
-  let day0 = parseInt(shortMonths[0]);
-  let day1 = parseInt(shortMonths[1]);
-  let month0 = parseInt(shortMonths[3]);
-  let month1 = parseInt(shortMonths[4]);
-  let sumMonths = month0 * 10 + month1;
-  let sumDays = day0 * 10 + day1;
+function FebMonth(dato) {
+  day0 = dato[0];
+  day1 = dato[1];
+  month0 = dato[3];
+  month1 = dato[4];
+  let sumMonths = month0 + month1;
+  let sumDays = day0 + day1;
 
   // console.log('shortMonths ' + sumDays);
   // console.log('sumMonths ' + sumMonths);
@@ -171,7 +195,7 @@ function LeapYear(dato) {
   Qday = dato[0] + dato[1];
   QleapDay = Qday + Qmonth;
 
-  console.log(QleapDay);
+  // console.log(QleapDay);
   // console.log(Qmonth);
 
   if (QleapDay == 2902) {

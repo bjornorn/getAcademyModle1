@@ -13,30 +13,34 @@
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
     <script src="https://code.jquery.com/qunit/qunit-2.14.0.js"></script>
-    <script src="obli.js"></script>
+    <script src="finalObli.js"></script>
 
-    <script> 
+    <script>
+      dato = '31.05.1224';
 
       QUnit.test('er dato gyldig', function (assert) {
-        let actual = isDateValid('01.10.2020');
-        let expected = false;
-        assert.equal(actual, expected);
-      });
-
-      QUnit.test('lengden er ikke 10', function (assert) {
-        let actual = isDigitsTen('0123436780');
+        let actual = isDateValid(dato);
         let expected = true;
         assert.equal(actual, expected);
       });
 
-      QUnit.test('det er ikke punktum i begge de rette posisjonene', function (assert) {
-        let actual = someDotsMissing('--.--.----');
-        let expected = false;
+      QUnit.test('lengden er ikke 10', function (assert) {
+        let actual = isDigitsTen(dato);
+        let expected = true;
         assert.equal(actual, expected);
       });
 
+      QUnit.test(
+        'det er ikke punktum i begge de rette posisjonene',
+        function (assert) {
+          let actual = someDotsMissing(dato);
+          let expected = false;
+          assert.equal(actual, expected);
+        }
+      );
+
       QUnit.test('det er feil antal siffer i "year"', function (assert) {
-        let actual = YearDigits('stringIs10');
+        let actual = YearDigits(dato);
         let expected = false;
         assert.equal(actual, expected);
       });
@@ -44,20 +48,20 @@
       QUnit.test(
         'måned består ikke av to siffer med godkjent verdi',
         function (assert) {
-          let actual = MonthDigits('---10-----');
-          let expected = false;
+          let actual = MonthDigits(dato);
+          let expected = true;
           assert.equal(actual, expected);
         }
       );
 
       QUnit.test('måned utenfor 1-12', function (assert) {
-        let actual = MonthValue('---10-----');
+        let actual = MonthValue(dato);
         let expected = false;
         assert.equal(actual, expected);
       });
 
       QUnit.test('dag er større enn 31', function (assert) {
-        let actual = DayValue('31-------');
+        let actual = DayValue(dato);
         let expected = true;
         assert.equal(actual, expected);
       });
@@ -65,34 +69,35 @@
       QUnit.test(
         'dag er 31 for en måned som ikke har 31 dager',
         function (assert) {
-          let actual = ShortMonths('31.03.yyyy');
+          let actual = ShortMonths(dato);
           let expected = false;
           assert.equal(actual, expected);
-        });
+        }
+      );
 
-        QUnit.test(
-        'dag er 30 og måned er februar',
-        function (assert) {
-          let actual = FebMonth('29.02.yyyy');
-          let expected = false;
-          assert.equal(actual, expected);
-        });
+      QUnit.test('dag er 30 og måned er februar', function (assert) {
+        let actual = FebMonth(dato);
+        let expected = false;
+        assert.equal(actual, expected);
+      });
 
-        QUnit.test(
+      QUnit.test(
         'dag er 29 og måned er februar og det ikke er skuddår',
         function (assert) {
-          let actual = notLeapYear('30.03.2021');
+          let actual = notLeapYear(dato);
           let expected = false;
           assert.equal(actual, expected);
-        });
+        }
+      );
 
-        QUnit.test(
+      QUnit.test(
         '29. februar blir gyldig når det er skuddår',
         function (assert) {
-          let actual = LeapYear('29.02.2020');
+          let actual = LeapYear(dato);
           let expected = false;
           assert.equal(actual, expected);
-        });
+        }
+      );
     </script>
   </body>
 </html>
