@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .rute {
+        background-color: chartreuse;
+        width: 10vw;
+        height: 10vw;
+
+        /* display: inline-block;
+        white-space: nowrap; */
+        float: left;
+        border: 0.2vw solid;
+
+        font-size: 400%;
+        text-align: center;
+      }
+
+      .first {
+        clear: left;
+      }
+
+      .empty {
+        float: left;
+        width: 10vw;
+        height: 10vw;
+        border: black dotted 0.2vw;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      //model
+      app = document.getElementById('app');
+
+      testArray = ['', '', '', '', '', '', '', '', ''];
+
+      //view
+      oppdaterView();
+      function oppdaterView() {
+        app.innerHTML = '';
+        let rute;
+
+        for (var i = 0; i < testArray.length; i++) {
+          rute = [i];
+          let first = i % 3 == 0 ? 'first' : '';
+          let empty = i != 0 ? 'rute' : 'empty';
+
+          app.innerHTML += `<div onclick="moveMe(${i})" class="${empty} ${first}">${[
+            i,
+          ]}</div>`;
+        }
+      }
+
+      //controller
+      function moveMe(index) {
+        console.log(index);
+
+        //   let blankIndexes = Array.from(board.keys()).filter((i) => board[i] === ''
+        oppdaterView();
+      }
+    </script>
+  </body>
+</html>
