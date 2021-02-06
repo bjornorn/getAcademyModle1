@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .lamp {
+        background-color: blueviolet;
+        border-radius: 50%;
+        height: 10vw;
+        width: 10vw;
+        float: left;
+      }
+
+      .firstInRow {
+        clear: left;
+      }
+
+      .lightOn {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      // model
+      let html = document.getElementById('app');
+      let selectedLight;
+      let startTime;
+      let finishTime;
+      let responsTid = '';
+
+
+      lightsArray = [
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+      ];
+ 
+      
+      //view
+      updateView();
+      function updateView() {
+        html.innerHTML = ``;
+        
+
+        for (let i = 0; i < lightsArray.length; i++) {
+          let firstInRow = i % 5 == 0 ? 'firstInRow' : '';
+          html.innerHTML += `<div id="${i}"class="lamp ${firstInRow}" onclick="selectedRandomLight(${i})"></div>`;
+        }
+        html.innerHTML += `<div id="start">${responsTid}</div>`; 
+   
+      }
+
+      // controller
+      selectedRandomLight();
+      function selectedRandomLight(index) { 
+        let StoppKlokka = new Date();
+        finishTime = StoppKlokka.getTime();
+        
+        if (selectedLight == undefined) { 
+          
+          selectedLight = Math.floor(Math.random() * lightsArray.length);      
+          document.getElementById(selectedLight).classList.add('lightOn'); 
+        }  
+        
+        else if (index == selectedLight){
+          selectedLight = Math.floor(Math.random() * lightsArray.length);       
+          document.getElementById(selectedLight).classList.toggle('lightOn'); 
+          document.getElementById(index).classList.toggle('lightOn'); 
+        }
+        
+        console.log('index: ' + index);
+        console.log('SelectedLight: ' + selectedLight);
+        responsTid = (finishTime - startTime) / 1000;
+        document.getElementById("start").innerHTML = responsTid;        
+        
+        // updateView;
+      let startKlokka = new Date();
+      startTime = startKlokka.getTime();
+      }
+
+      // function taTiden()
+      // startTime = new Date().getTime();
+      // finishTime = new Date().getTime();
+      // spentMilliseconds = Math.floor(finishTime - startTime);
+      // spentSeconds = spentMilliseconds / 1000;
+
+      // console.log(spentSeconds);
+     
+    </script>
+  </body>
+</html>

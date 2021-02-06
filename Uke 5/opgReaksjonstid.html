@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .lamp {
+        background-color: blueviolet;
+        border-radius: 50%;
+        height: 10vw;
+        width: 10vw;
+        float: left;
+      }
+
+      .firstInRow {
+        clear: left;
+      }
+
+      .lightOn {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      // model
+      let html = document.getElementById('app');
+      let selectedLight;
+      lightsArray = [
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+      ];
+
+      //view
+      updateView();
+      function updateView() {
+        html.innerHTML = '';
+
+        for (let i = 0; i < lightsArray.length; i++) {
+          let firstInRow = i % 5 == 0 ? 'firstInRow' : '';
+          html.innerHTML += `<div id="${i}"class="lamp ${firstInRow}"></div>`;
+        }
+      }
+
+      // controller
+      selectedRandomLight();
+      
+      function selectedRandomLight(index) {
+        selectedLight = Math.floor(Math.random() * lightsArray.length);
+        // console.log('Logger: ' + selectedLight);
+        return document.getElementById(selectedLight).classList.add('lightOn');
+
+        updateView;
+      }
+
+      
+
+      function skruPaLys() {}
+    </script>
+  </body>
+</html>
