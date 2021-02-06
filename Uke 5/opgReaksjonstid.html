@@ -6,12 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      body {
+        background-color: black;
+      }
       .lamp {
-        background-color: blueviolet;
+        background-color: rgba(41, 184, 41, 0.781);
         border-radius: 50%;
-        height: 10vw;
-        width: 10vw;
+        height: 12vh;
+        width: 12vh;
         float: left;
+        margin-left: 10vw;
+        margin-top: 2vw;
+        font-size: 8vh;
+        text-align: center;
       }
 
       .firstInRow {
@@ -20,6 +27,17 @@
 
       .lightOn {
         background-color: yellow;
+        font-size: 8vh;
+        text-align: center;
+      }
+
+      #start {
+        color: brown;
+        font-family: fantasy;
+
+        margin-left: 10%;
+        margin-right: auto;
+        font-size: 3vw;
       }
     </style>
   </head>
@@ -28,7 +46,12 @@
     <script>
       // model
       let html = document.getElementById('app');
+
       let selectedLight;
+      let startTime;
+      let finishTime;
+      let responsTid = '';
+
       lightsArray = [
         '',
         '',
@@ -60,28 +83,47 @@
       //view
       updateView();
       function updateView() {
-        html.innerHTML = '';
+        html.innerHTML = ``;
+
+        html.innerHTML += `<div id="start"></div>`;
 
         for (let i = 0; i < lightsArray.length; i++) {
           let firstInRow = i % 5 == 0 ? 'firstInRow' : '';
-          html.innerHTML += `<div id="${i}"class="lamp ${firstInRow}"></div>`;
+          html.innerHTML += `<div id="${i}"class="lamp ${firstInRow}" onclick="selectedRandomLight(${i})">😱</div>`;
         }
       }
 
       // controller
       selectedRandomLight();
-      
       function selectedRandomLight(index) {
-        selectedLight = Math.floor(Math.random() * lightsArray.length);
-        // console.log('Logger: ' + selectedLight);
-        return document.getElementById(selectedLight).classList.add('lightOn');
+        if (selectedLight == undefined) {
+          selectedLight = Math.floor(Math.random() * lightsArray.length);
+          document.getElementById(selectedLight).classList.add('lightOn');
+          document.getElementById(selectedLight).innerHTML = '👹';
+        } else if (index == selectedLight) {
+          selectedLight = Math.floor(Math.random() * lightsArray.length);
+          document.getElementById(selectedLight).classList.toggle('lightOn');
+          document.getElementById(index).innerHTML = '😱';
+          document.getElementById(selectedLight).innerHTML = '👹';
+          document.getElementById(index).classList.toggle('lightOn');
+          let StoppKlokka = new Date();
+          finishTime = StoppKlokka.getTime();
+        }
 
+        console.log('index: ' + index);
+        console.log('SelectedLight: ' + selectedLight);
+        responsTid = (finishTime - startTime) / 1000;
+        let startKlokka = new Date();
+        startTime = startKlokka.getTime();
+        console.log('responsTid: ' + responsTid);
+        if (responsTid > '0') {
+          document.getElementById('start').innerHTML =
+            'Du drepte Covid på ' + responsTid + ' sekunder';
+        } else {
+          document.getElementById('start').innerHTML = 'Kom igjen! Drep Covid!';
+        }
         updateView;
       }
-
-      
-
-      function skruPaLys() {}
     </script>
   </body>
 </html>
