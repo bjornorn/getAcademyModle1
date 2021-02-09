@@ -1,35 +1,48 @@
 function velgBar(barNo) {
-  if (barNo.id == chosenBar) {
+  if (barNo == chosenBar) {
     chosenBar = undefined;
     inputValue = 0;
+    outputMessage = undefined;
+
   } else {
-    chosenBar = barNo.id;
+    chosenBar = barNo;
     inputValue = numbers[chosenBar - 1];
+    outputMessage = undefined;
     // endre.disabled = false;
   }
-  console.log(inputValue);
+  // console.log(barNo);
 
   show();
 }
 
 function endreStolpe() {
-  inputValue <= 10 && inputValue >= 1
-    ? (numbers[chosenBar - 1] = inputValue)
-    : alert('Ugyldig verdi. Velg en verdi fra 1 til 10');
-
-  show();
+  if (inputValue <= 10 && inputValue >= 1) {
+     numbers[chosenBar - 1] = inputValue;
+     show();
+     return true;
+  }
+     else {
+       outputMessage = 'Ugyldig verdi. Velg en verdi fra 1 til 10';
+       show();       
+       return false;
+     }  
+     
+     
+ 
 }
 
 function fjernStolpe() {
-  numbers.splice(chosenBar - 1, 1);
-  // chosenBar = undefined;
+
+  numbers.splice((chosenBar - 1), 1);
+  chosenBar = undefined;
   show();
+
+ 
 }
 
 function leggTilStolpe() {
   inputValue <= 10 && inputValue >= 1
-    ? numbers.push(inputValue)
-    : 'Ugyldig verdi. Velg en verdi fra 1 til 10';
+    ? (numbers.push(inputValue) && (outputMessage = undefined)) : outputMessage = 'Ugyldig verdi. Velg en verdi fra 1 til 10';
 
   show();
 }

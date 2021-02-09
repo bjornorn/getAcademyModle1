@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Test Suite</title>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/qunit/qunit-2.14.0.css"
+    />
+  </head>
+  <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.14.0.js"></script>
+    <script src="controller.js"></script>
+
+    <script>
+      // model
+      let numbers = [7, 3, 1, 5, 8];
+      let chosenBar;
+      let inputValue;
+      let barNo;
+
+      // view
+      function show() {}
+
+      QUnit.test('valgt stolpe nr 3', function (assert) {
+        // forberede
+
+        velgBar(3);
+        // handle
+        let actual = chosenBar;
+        let expected = 3;
+        // påstand
+        assert.equal(actual, expected);
+      });
+
+      QUnit.test('slett stolpe nr 3', function (assert) {
+        // forberede
+        let chosenBar = 3; //fungerer frem til man endrer verdi tilbake til 3- da må man oppdatere siden.
+        fjernStolpe();
+        // handle
+        let actual = numbers;
+        let expected = (numbers = [7, 3, 5, 8]);
+        // påstand
+        assert.deepEqual(actual, expected);
+      });
+
+      //   QUnit.test('endre verdi fra 5 til 7 i stolpe nr 4', function (assert) {
+      //       // forberede
+      //       inputValue = 7
+      //       endreStolpe(4);
+      //       // handle
+      //       let actual = (numbers[3] = 7);
+      //       let expected = 7;
+      //       // påstand
+      //       assert.deepEqual(actual, expected);
+      //   });
+
+      // QUnit.test('se om ', function (assert) {
+      //     // forberede
+      //     inputValue = 10;
+      //     // handle
+      //     let actual = endreStolpe();
+      //     let expected = true;
+      //     // påstand
+      //     assert.equal(actual, expected);
+      //   });
+    </script>
+  </body>
+</html>

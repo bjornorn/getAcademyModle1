@@ -6,7 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="controller.js"></script>
 
-    <title>Document</title>
+    <title>Oblig 2, baby!</title>
+    <style>
+      #helpBot {
+        border: dotted red;
+        min-width: 80%;
+        font-size: 150%;
+        margin-top: 10px;
+      }
+    </style>
   </head>
   <body>
     <div id="content"></div>
@@ -20,6 +28,7 @@
       let chosenBar; // Variabel for hvilken stolpe som er valgt
       let inputValue = 0; // Variabel for hva som er skrevet i input-feltet
       //   let endre = document.getElementById("endre").disabled;
+      let outputMessage;
 
       // view
       show();
@@ -33,7 +42,12 @@
 
         let disableIndex = chosenBar != undefined ? '' : 'disabled';
 
-        let inputValueIndex = chosenBar == undefined ? '0' : inputValue;
+        // let inputValueIndex = chosenBar == undefined ? '0' : inputValue;
+
+        let outputMessageIndex =
+          outputMessage == undefined
+            ? 'Jeg har ingen feilmeldinger til deg, det virker som om du håndterer dette stolpediagrammet helt utmerket'
+            : outputMessage;
         contentDiv.innerHTML = `
                 <svg id="chart" width="500" viewBox="0 0 80 60">
                     ${svgInnerHtml}
@@ -41,10 +55,12 @@
                 Valgt stolpe: <i>${chosenBarIndex}</i>
                 <br />
                 Verdi:
-                <input placeholder="${inputValueIndex}" type="number" min="1" max="10" oninput="inputValue = this.value" />
+                <input value="${inputValue}" type="number" min="1" max="10" oninput="inputValue = this.value" />
                 <button onclick="leggTilStolpe()">Legg til stolpe</button>
                 <button ${disableIndex} onclick="endreStolpe()">Endre valgt stolpe</button><br />
                 <button ${disableIndex} onclick="fjernStolpe()">Fjerne valgt stolpe</button>
+                </br>
+                <div id="helpBot">Help-Bot-2000: ${outputMessageIndex}</div>
                 `;
       }
 
@@ -56,7 +72,7 @@
         let y = 60 - height;
         let color = calcColor(1, 10, barNo);
         let stroke = chosenBar == barNo ? 'black' : '';
-        return `<rect id="${barNo}" onclick="velgBar(this)" width="${width}" height="${height}"
+        return `<rect id="${barNo}" onclick="velgBar(${barNo})" width="${width}" height="${height}"
                                 x="${x}" y="${y}" fill="${color}" stroke="${stroke}"></rect>`;
       }
 
